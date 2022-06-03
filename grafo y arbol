@@ -1,0 +1,126 @@
+ /* 
+  * PROBLEM 1
+ * isSquare(g)
+ *
+ * indicates whether g is a squared matrix
+ * @arg {matrix} g - graph
+ * @returns {bool} - true or false, whether g is a squared matrix
+ *
+ * @calling example
+ * isSquare(g)
+  */
+  
+  let g=[
+    [0,1,0,0],
+    [1,0,0,0],
+    [0,0,0,0],
+    [0,0,0,0],
+  ]
+  function isSquare(g){
+    if(g.length==g[1].length)
+      return 'True g is a matrix squared';
+    return 'False g isnt a matrix squared';
+  }
+  
+  console.log(isSquare(g))
+  
+  /*
+   * PROBLEM 2
+ * isSymmetrical(g)
+ *
+ * indicates whether g is a symmetrical matrix
+ * @arg {matrix} g - graph
+ * @returns {bool} - true or false, whether g is a symmetrical matrix
+ *
+ * @calling example
+ * isSymmetrical(g)
+  */
+  
+  function isSymmetrical(g){
+    for(let i=0;i<g.length;i++)
+      for(let a=0;a<g.length;i++){
+        if(g[i][a+1]!=g[a+1][i])
+          return 'False the graph isnt symmetrical'
+        else
+          return 'True the graph is symmetrical'
+      }
+  }
+  console.log(isSymmetrical(g));
+  
+  /*
+  * PROBLEM 3
+ * isTree(t)
+ *
+ * indicates whether t is a tree
+ * @arg {matrix} t - a tree
+ * @returns {bool} - true or false, whether t is a tree
+ *
+ * @calling example
+ * isTree(t)
+   * PROBLEM 4
+ * isGraph(q)
+ *
+ * indicates whether q is a graph
+ * @arg {matrix} q - graph, tree, matrix
+ * @returns {bool} - true or false, whether q is a graph
+ * may use all previous functions/methods
+ *
+ * @calling example
+ * isGraph(q)
+ *
+ * @see {@link https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array}
+ * @see {@link https://jsdoc.app}
+ */
+ class Matriz{
+  constructor(matriz){
+    this.matriz=matriz;
+  }
+    esArbol(matriz){
+    let sum=0;
+    let cont=0;
+    let columna=0;
+    
+     for(let i=0; i < matriz.length; i++){
+      for(let j=0; j < matriz[i].length; j++){
+        cont++;
+        columna = cont / matriz.length ;
+      }
+     }
+        
+    for(let i=1;i<matriz.length;i++){
+      sum=0;
+      for(let j=0;j<columna;j++){
+        if(j<i){
+          sum+=matriz[i][j];
+         if(sum > 1){
+           return console.log(false);
+         }
+         }
+       }
+    }
+      return console.log(true);     
+  }
+  
+  esGrafo(matriz){
+    if(matriz.esArbol(matriz) == false){
+      return console.log(true);
+    }
+    else{
+      return console.log(false);    
+    }
+      
+  }
+  
+}
+   
+let x = [
+[0,1,0,0],
+[1,0,1,1],
+[0,1,0,1],
+[0,1,1,0],
+];
+ let a = new Matriz(x);
+ console.log("arbol")
+a.esArbol(a);
+console.log("grafo")
+a.esGrafo(a);
