@@ -1,0 +1,40 @@
+  function Node(data) {//construc
+     this.data = data
+     this.sig = null
+  }
+  
+  let n1 = new Node(5)
+  let n2 = new Node(1)
+  let n3 = new Node(3)
+
+  n1.sig=n2
+  n2.sig=n3
+
+  
+  const traverse=(n)=>{
+    let c=n
+    while(c){
+      console.log(c.data)
+      c=c.next
+    }
+	}
+  
+  function contains(n,v){
+     let a;
+     let c=n
+    while(c){
+     if(c.data == v){
+       a = "verdadero"
+       c = "*"
+     }
+     else
+         c = c.sig
+    }
+    
+    if(a=="true")
+      console.log("verdadero")
+    else
+      console.log("falso")
+  }
+  
+  contains(n1,0)
